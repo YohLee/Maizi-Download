@@ -14,7 +14,7 @@ download_exe = r'e:\aria2\aria2c.exe'
 download_dir = ur'e:\maizi'
 # 生成的bat脚本路径
 urls_bat = r'e:\click_to_download.bat'
-# 此处为课程id列表,例如http://www.maiziedu.com/course/553
+# 此处为课程id列表（例如http://www.maiziedu.com/course/553）譬如我现在要下载381和553的课程
 course_id_list = [381, 553]
 
 
