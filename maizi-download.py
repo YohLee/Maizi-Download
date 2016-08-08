@@ -8,7 +8,7 @@ http://api.maiziedu.com/v2/getCareerDetail/?UUID=680c2c9cc8f147dc8b157b48aa9ddfc
 import requests
 import io
 
-# aria2c绝对位置
+# aria2的位置，自行修改
 download_exe = r'e:\aria2\aria2c.exe'
 # 视频储存位置
 download_dir = ur'e:\maizi'
