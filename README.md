@@ -1,7 +1,7 @@
 麦子学院视频下载
 ==========
 
-#####测试环境： `PYTHON 2.7`
+#####测试环境： `win10 x64` + `PYTHON 2.7`
 #####依赖包： `requests`
 	pip install requests
 #####下载工具： `aria2c`
