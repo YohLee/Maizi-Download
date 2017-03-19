@@ -25,11 +25,10 @@ def download(course_id):
         video_id = video['video_id']
         video_name = video['video_name']
         video_url = video['video_url']
-        cmd = ur'"%s" "%s" --file-allocation=none --max-connection-per-server=4  -d "%s\%s" -o "%d_%s.mp4"' \
+        cmd = r'"%s" "%s" --file-allocation=none --max-connection-per-server=4  -d "%s\%s" -o "%d_%s.mp4"' \
               % (download_exe, video_url, download_dir, course_name, video_id, video_name)
         print(cmd)
         result.append(cmd)
-
     return result
 
 
