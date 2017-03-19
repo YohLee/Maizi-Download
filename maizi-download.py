@@ -1,34 +1,24 @@
 # -*- coding: utf-8 -*-
 
-'''
-获取课程id的json请求URL
-http://api.maiziedu.com/v2/getCareerDetail/?UUID=680c2c9cc8f147dc8b157b48aa9ddfc9&careerId=13&client=android
-'''
-
 import requests
 import io
 
-# aria2的位置，自行修改
-download_exe = r'e:\aria2\aria2c.exe'
+# aria2的位置
+download_exe = r'E:\Program Files (x86)\aria2\aria2c.exe'
 # 视频储存位置
-download_dir = ur'e:\maizi'
+download_dir = r'e:\maizi'
 # 生成的bat脚本路径
 urls_bat = r'e:\click_to_download.bat'
-# 此处为课程id列表（例如http://www.maiziedu.com/course/553）
-course_id_list = [381, 553]
+# 课程id列表
+course_id_list = [313]
 
 
 def download(course_id):
     result = []
-
     url = 'http://api.maiziedu.com/v2/getCoursePlayInfo/?courseId=%d&client=android' % course_id
-
     r = requests.get(url)
-
     json_data = r.json()
-
     course_name = json_data['data']['course_name']
-
     video_list = json_data['data']['video_list']
 
     for video in video_list:
@@ -37,7 +27,7 @@ def download(course_id):
         video_url = video['video_url']
         cmd = ur'"%s" "%s" --file-allocation=none --max-connection-per-server=4  -d "%s\%s" -o "%d_%s.mp4"' \
               % (download_exe, video_url, download_dir, course_name, video_id, video_name)
-        print cmd
+        print(cmd)
         result.append(cmd)
 
     return result
