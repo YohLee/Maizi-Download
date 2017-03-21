@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
-
 import requests
 import io
 
-# aria2的位置
+'''
+需要先配置aria2c、生成bat脚本以及下载的路径，课程id列表填入需要下载的课程
+'''
 download_exe = r'E:\Program Files (x86)\aria2\aria2c.exe'
-# 视频储存位置
 download_dir = r'e:\maizi'
-# 生成的bat脚本路径
 urls_bat = r'e:\click_to_download.bat'
-# 课程id列表
 course_id_list = [313]
 
 
@@ -31,12 +29,15 @@ def download(course_id):
         result.append(cmd)
     return result
 
+def main():
+    result = []
+    for course_id in course_id_list:
+        result = result + download(course_id)
 
-result = []
-for course_id in course_id_list:
-    result = result + download(course_id)
+    bat_file = io.open(urls_bat, 'w+', encoding='gbk')
+    for cmd in result:
+        bat_file.writelines(cmd + '\r\n')
+    bat_file.close()
 
-bat_file = io.open(urls_bat, 'w+', encoding='gbk')
-for cmd in result:
-    bat_file.writelines(cmd + '\r\n')
-bat_file.close()
+if __name__ == '__main__':
+    main()
